@@ -10,14 +10,23 @@ const ApplicationsLayout = ({ children }: ApplicationLayoutProps) => {
     <div className="rw-scaffold">
       <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
       <header className="rw-header">
-        <h1 className="rw-heading rw-heading-primary">
-          <Link
-            to={routes.applications()}
-            className="rw-link"
-          >
-            Applications
-          </Link>
+        <h1>
+          <Link to={routes.home()}>myApplications</Link>
         </h1>
+        <nav>
+          <ul>
+            <li>
+              <Link to={routes.home()}>Home</Link>
+            </li>
+            <li>
+              <Link to={routes.about()}>About</Link>
+            </li>
+            <li>
+              <Link to={routes.applications()}>Applications</Link>
+            </li>
+          </ul>
+        </nav>
+
         <Link
           to={routes.newApplication()}
           className="rw-button rw-button-green"
