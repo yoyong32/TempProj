@@ -19,7 +19,9 @@ generator client {
 
 model Application {
   id        Int      @id @default(autoincrement())
-  title     String
-  body      String
-  createdAt DateTime @default(now())
+  position  String
+  stage     String
+  notes     String
+  submitted DateTime @default(now())
+  offer     String
 }

@@ -31,21 +31,28 @@ describe('applications', () => {
 
   scenario('creates a application', async () => {
     const result = await createApplication({
-      input: { title: 'String', body: 'String' },
+      input: {
+        position: 'String',
+        stage: 'String',
+        notes: 'String',
+        offer: 'String',
+      },
     })
 
-    expect(result.title).toEqual('String')
-    expect(result.body).toEqual('String')
+    expect(result.position).toEqual('String')
+    expect(result.stage).toEqual('String')
+    expect(result.notes).toEqual('String')
+    expect(result.offer).toEqual('String')
   })
 
   scenario('updates a application', async (scenario: StandardScenario) => {
     const original = await application({ id: scenario.application.one.id })
     const result = await updateApplication({
       id: original.id,
-      input: { title: 'String2' },
+      input: { position: 'String2' },
     })
 
-    expect(result.title).toEqual('String2')
+    expect(result.position).toEqual('String2')
   })
 
   scenario('deletes a application', async (scenario: StandardScenario) => {

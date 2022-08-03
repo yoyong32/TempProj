@@ -9,9 +9,11 @@ export const QUERY = gql`
   query FindApplications {
     applications {
       id
-      title
-      body
-      createdAt
+      position
+      stage
+      notes
+      submitted
+      offer
     }
   }
 `

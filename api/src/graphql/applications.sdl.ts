@@ -1,9 +1,11 @@
 export const schema = gql`
   type Application {
     id: Int!
-    title: String!
-    body: String!
-    createdAt: DateTime!
+    position: String!
+    stage: String!
+    notes: String!
+    submitted: DateTime!
+    offer: String!
   }
 
   type Query {
@@ -12,13 +14,19 @@ export const schema = gql`
   }
 
   input CreateApplicationInput {
-    title: String!
-    body: String!
+    position: String!
+    stage: String!
+    notes: String!
+    submitted: DateTime!
+    offer: String!
   }
 
   input UpdateApplicationInput {
-    title: String
-    body: String
+    position: String
+    stage: String
+    notes: String
+    submitted: DateTime
+    offer: String
   }
 
   type Mutation {

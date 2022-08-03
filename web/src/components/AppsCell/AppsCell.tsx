@@ -6,9 +6,11 @@ export const QUERY = gql`
   query AppsQuery {
     apps: applications {
       id
-      title
-      body
-      createdAt
+      position
+      stage
+      notes
+      submitted
+      offer
     }
   }
 `
@@ -32,10 +34,10 @@ export const Success = ({ apps }: CellSuccessProps<AppsQuery>) => {
       {apps.map((application) => (
         <ul key={application.id}>
           <header>
-            <h2>{application.title}</h2>
+            <h2>{application.position}</h2>
           </header>
-          <p>{application.body}</p>
-          <div>Posted at: {application.createdAt}</div>
+          <p>{application.notes}</p>
+          <div>Applied at: {application.submitted}</div>
         </ul>
       ))}
     </>

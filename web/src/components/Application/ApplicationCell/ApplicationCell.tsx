@@ -8,9 +8,11 @@ export const QUERY = gql`
   query FindApplicationById($id: Int!) {
     application: application(id: $id) {
       id
-      title
-      body
-      createdAt
+      position
+      stage
+      notes
+      submitted
+      offer
     }
   }
 `

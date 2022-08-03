@@ -80,9 +80,11 @@ const ApplicationsList = ({ applications }) => {
         <thead>
           <tr>
             <th>Id</th>
-            <th>Title</th>
-            <th>Body</th>
-            <th>Created at</th>
+            <th>Position</th>
+            <th>Stage</th>
+            <th>Notes</th>
+            <th>Submitted</th>
+            <th>Offer</th>
             <th>&nbsp;</th>
           </tr>
         </thead>
@@ -90,9 +92,11 @@ const ApplicationsList = ({ applications }) => {
           {applications.map((application) => (
             <tr key={application.id}>
               <td>{truncate(application.id)}</td>
-              <td>{truncate(application.title)}</td>
-              <td>{truncate(application.body)}</td>
-              <td>{timeTag(application.createdAt)}</td>
+              <td>{truncate(application.position)}</td>
+              <td>{truncate(application.stage)}</td>
+              <td>{truncate(application.notes)}</td>
+              <td>{timeTag(application.submitted)}</td>
+              <td>{truncate(application.offer)}</td>
               <td>
                 <nav className="rw-table-actions">
                   <Link

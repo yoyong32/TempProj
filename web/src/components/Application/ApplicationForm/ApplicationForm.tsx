@@ -5,21 +5,17 @@ import {
   Label,
   TextField,
   Submit,
+  DatetimeLocalField,
 } from '@redwoodjs/forms'
 
 
 
 const ApplicationForm = (props) => {
   const onSubmit = (data) => {
+    var newData = data
+    newData.submitted = new Date()
 
-  
-    
-    
-  
-    
-    
-  
-    props.onSave(data, props?.application?.id)
+    props.onSave(newData, props?.application?.id)
   }
 
   return (
@@ -31,44 +27,82 @@ const ApplicationForm = (props) => {
           titleClassName="rw-form-error-title"
           listClassName="rw-form-error-list"
         />
-      
+
         <Label
-          name="title"
+          name="position"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Title
+          Position
         </Label>
-        
+
           <TextField
-            name="title"
-            defaultValue={props.application?.title}
+            name="position"
+            defaultValue={props.application?.position}
             className="rw-input"
             errorClassName="rw-input rw-input-error"
             validation={{ required: true }}
           />
-        
 
-        <FieldError name="title" className="rw-field-error" />
+
+        <FieldError name="position" className="rw-field-error" />
 
         <Label
-          name="body"
+          name="stage"
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Body
+          Stage
         </Label>
-        
+
           <TextField
-            name="body"
-            defaultValue={props.application?.body}
+            name="stage"
+            defaultValue={props.application?.stage}
             className="rw-input"
             errorClassName="rw-input rw-input-error"
             validation={{ required: true }}
           />
-        
 
-        <FieldError name="body" className="rw-field-error" />
+
+        <FieldError name="stage" className="rw-field-error" />
+
+        <Label
+          name="notes"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Notes
+        </Label>
+
+          <TextField
+            name="notes"
+            defaultValue={props.application?.notes}
+            className="rw-input"
+            errorClassName="rw-input rw-input-error"
+            validation={{ required: true }}
+          />
+
+
+        <FieldError name="notes" className="rw-field-error" />
+
+        <Label
+          name="offer"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Offer
+        </Label>
+
+          <TextField
+            name="offer"
+            defaultValue={props.application?.offer}
+            className="rw-input"
+            errorClassName="rw-input rw-input-error"
+            validation={{ required: true }}
+          />
+
+
+        <FieldError name="offer" className="rw-field-error" />
 
         <div className="rw-button-group">
           <Submit

@@ -74,14 +74,20 @@ const Application = ({ application }) => {
               <th>Id</th>
               <td>{application.id}</td>
             </tr><tr>
-              <th>Title</th>
-              <td>{application.title}</td>
+              <th>Position</th>
+              <td>{application.position}</td>
             </tr><tr>
-              <th>Body</th>
-              <td>{application.body}</td>
+              <th>Stage</th>
+              <td>{application.stage}</td>
             </tr><tr>
-              <th>Created at</th>
-              <td>{timeTag(application.createdAt)}</td>
+              <th>Notes</th>
+              <td>{application.notes}</td>
+            </tr><tr>
+              <th>Submitted</th>
+              <td>{timeTag(application.submitted)}</td>
+            </tr><tr>
+              <th>Offer</th>
+              <td>{application.offer}</td>
             </tr>
           </tbody>
         </table>

@@ -11,9 +11,11 @@ export const QUERY = gql`
   query EditApplicationById($id: Int!) {
     application: application(id: $id) {
       id
-      title
-      body
-      createdAt
+      position
+      stage
+      notes
+      submitted
+      offer
     }
   }
 `
@@ -21,9 +23,11 @@ const UPDATE_APPLICATION_MUTATION = gql`
   mutation UpdateApplicationMutation($id: Int!, $input: UpdateApplicationInput!) {
     updateApplication(id: $id, input: $input) {
       id
-      title
-      body
-      createdAt
+      position
+      stage
+      notes
+      submitted
+      offer
     }
   }
 `
