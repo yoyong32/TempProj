@@ -1,5 +1,5 @@
-import type { AppsQuery } from 'types/graphql'
-import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web'
+import type { AppsQuery } from 'types/graphql';
+import type { CellSuccessProps, CellFailureProps } from '@redwoodjs/web';
 
 
 export const QUERY = gql`
@@ -13,33 +13,35 @@ export const QUERY = gql`
       offer
     }
   }
-`
+`;
 
-export const Loading = () => <div>Loading...</div>
+export const Loading = () => <div>Loading...</div>;
 
-export const Empty = () => <div>Empty</div>
+export const Empty = () => <div>Empty</div>;
 
 export const Failure = ({ error }: CellFailureProps) => (
   <div style={{ color: 'red' }}>Error: {error.message}</div>
-)
+);
 
 export const Success = ({ apps }: CellSuccessProps<AppsQuery>) => {
+  const filterApps = (apps: AppsQuery['apps']) => {
+    return apps.filter(app => !app.stage.toLocaleLowerCase().includes('phone'))
+  }
+
   return (
-    // <ul>
-    //   {apps.map((item) => {
-    //     return <li key={item.id}>{JSON.stringify(item)}</li>
-    //   })}
-    // </ul>
     <>
-      {apps.map((application) => (
+      {filterApps(apps).map((application) => (
         <ul key={application.id}>
           <header>
             <h2>{application.position}</h2>
           </header>
-          <p>{application.notes}</p>
+          <div style={{ display: 'inline' }}>
+            <p>{application.stage}</p>
+            <p>{application.notes}</p>
+          </div>
           <div>Applied at: {application.submitted}</div>
         </ul>
       ))}
     </>
-  )
-}
+  );
+};

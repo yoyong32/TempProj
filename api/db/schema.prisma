@@ -19,6 +19,7 @@ generator client {
 
 model Application {
   id        Int      @id @default(autoincrement())
+  company   String
   position  String
   stage     String
   notes     String

@@ -6,17 +6,27 @@ import {
   TextField,
   Submit,
   DatetimeLocalField,
-} from '@redwoodjs/forms'
+  SelectField,
+} from '@redwoodjs/forms';
 
-
+type FormResponse = {
+  position: string
+  stage: string
+  notes: string
+  offer: string
+  submitted: Date
+}
 
 const ApplicationForm = (props) => {
-  const onSubmit = (data) => {
-    var newData = data
-    newData.submitted = new Date()
+  const onSubmit = (data: FormResponse) => {
+    var newData: FormResponse = data;
+    newData.submitted = new Date();
+    newData.stage = data.stage
 
-    props.onSave(newData, props?.application?.id)
-  }
+    console.log({newData})
+
+    props.onSave(newData, props?.application?.id);
+  };
 
   return (
     <div className="rw-form-wrapper">
@@ -36,14 +46,13 @@ const ApplicationForm = (props) => {
           Position
         </Label>
 
-          <TextField
-            name="position"
-            defaultValue={props.application?.position}
-            className="rw-input"
-            errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
-          />
-
+        <TextField
+          name="position"
+          defaultValue={props.application?.position}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
 
         <FieldError name="position" className="rw-field-error" />
 
@@ -55,13 +64,20 @@ const ApplicationForm = (props) => {
           Stage
         </Label>
 
-          <TextField
-            name="stage"
-            defaultValue={props.application?.stage}
-            className="rw-input"
-            errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
-          />
+        {/* <TextField
+          name="stage"
+          defaultValue={props.application?.stage}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        /> */}
+
+        <SelectField name="stage" >
+          <option>Submitted Application</option>
+          <option>Phone Screen</option>
+          <option>Onsite</option>
+          <option>Final Round</option>
+        </SelectField>
 
 
         <FieldError name="stage" className="rw-field-error" />
@@ -74,13 +90,13 @@ const ApplicationForm = (props) => {
           Notes
         </Label>
 
-          <TextField
-            name="notes"
-            defaultValue={props.application?.notes}
-            className="rw-input"
-            errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
-          />
+        <TextField
+          name="notes"
+          defaultValue={props.application?.notes}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
 
 
         <FieldError name="notes" className="rw-field-error" />
@@ -93,13 +109,13 @@ const ApplicationForm = (props) => {
           Offer
         </Label>
 
-          <TextField
-            name="offer"
-            defaultValue={props.application?.offer}
-            className="rw-input"
-            errorClassName="rw-input rw-input-error"
-            validation={{ required: true }}
-          />
+        <TextField
+          name="offer"
+          defaultValue={props.application?.offer}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
 
 
         <FieldError name="offer" className="rw-field-error" />
@@ -114,7 +130,7 @@ const ApplicationForm = (props) => {
         </div>
       </Form>
     </div>
-  )
-}
+  );
+};
 
-export default ApplicationForm
+export default ApplicationForm;
