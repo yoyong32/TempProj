@@ -80,6 +80,7 @@ const ApplicationsList = ({ applications }) => {
         <thead>
           <tr>
             <th>Id</th>
+            <th>Company</th>
             <th>Position</th>
             <th>Stage</th>
             <th>Notes</th>
@@ -92,6 +93,7 @@ const ApplicationsList = ({ applications }) => {
           {applications.map((application) => (
             <tr key={application.id}>
               <td>{truncate(application.id)}</td>
+              <td>{truncate(application.company)}</td>
               <td>{truncate(application.position)}</td>
               <td>{truncate(application.stage)}</td>
               <td>{truncate(application.notes)}</td>

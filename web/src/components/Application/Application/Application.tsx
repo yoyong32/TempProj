@@ -74,6 +74,9 @@ const Application = ({ application }) => {
               <th>Id</th>
               <td>{application.id}</td>
             </tr><tr>
+              <th>Company</th>
+              <td>{application.company}</td>
+            </tr><tr>
               <th>Position</th>
               <td>{application.position}</td>
             </tr><tr>

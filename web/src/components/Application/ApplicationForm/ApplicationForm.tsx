@@ -10,6 +10,7 @@ import {
 } from '@redwoodjs/forms';
 
 type FormResponse = {
+  company: string
   position: string
   stage: string
   notes: string
@@ -22,9 +23,6 @@ const ApplicationForm = (props) => {
     var newData: FormResponse = data;
     newData.submitted = new Date();
     newData.stage = data.stage
-
-    console.log({newData})
-
     props.onSave(newData, props?.application?.id);
   };
 
@@ -37,6 +35,24 @@ const ApplicationForm = (props) => {
           titleClassName="rw-form-error-title"
           listClassName="rw-form-error-list"
         />
+
+        <Label
+          name="company"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Company
+        </Label>
+
+        <TextField
+          name="company"
+          defaultValue={props.application?.company}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+        />
+
+        <FieldError name="company" className="rw-field-error" />
 
         <Label
           name="position"
@@ -64,21 +80,12 @@ const ApplicationForm = (props) => {
           Stage
         </Label>
 
-        {/* <TextField
-          name="stage"
-          defaultValue={props.application?.stage}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        /> */}
-
         <SelectField name="stage" >
           <option>Submitted Application</option>
           <option>Phone Screen</option>
           <option>Onsite</option>
           <option>Final Round</option>
         </SelectField>
-
 
         <FieldError name="stage" className="rw-field-error" />
 
@@ -98,7 +105,6 @@ const ApplicationForm = (props) => {
           validation={{ required: true }}
         />
 
-
         <FieldError name="notes" className="rw-field-error" />
 
         <Label
@@ -109,14 +115,10 @@ const ApplicationForm = (props) => {
           Offer
         </Label>
 
-        <TextField
-          name="offer"
-          defaultValue={props.application?.offer}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
-
+        <SelectField name="offer" >
+          <option>Yes</option>
+          <option>No</option>
+        </SelectField>
 
         <FieldError name="offer" className="rw-field-error" />
 

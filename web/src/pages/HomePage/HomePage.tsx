@@ -5,7 +5,7 @@ const HomePage = () => {
   return (
     <>
       <MetaTags title="Home" description="Home page" />
-      <h2>Applications In-Progress</h2>
+      <h3>Applications In-Progress</h3>
 
       <AppsCell/>
     </>

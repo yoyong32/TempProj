@@ -10,10 +10,11 @@ li {
   display: inline-block;
   margin: 0 1rem 0 0 ;
 }
-h1 > a {
+h1, h2, h3, h4, h5{
   text-decoration: none;
   color: black;
 }
+
 button, input, label, textarea {
   display: block;
   outline: none;

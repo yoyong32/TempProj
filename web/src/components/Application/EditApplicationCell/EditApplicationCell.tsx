@@ -11,6 +11,7 @@ export const QUERY = gql`
   query EditApplicationById($id: Int!) {
     application: application(id: $id) {
       id
+      company
       position
       stage
       notes
@@ -23,6 +24,7 @@ const UPDATE_APPLICATION_MUTATION = gql`
   mutation UpdateApplicationMutation($id: Int!, $input: UpdateApplicationInput!) {
     updateApplication(id: $id, input: $input) {
       id
+      company
       position
       stage
       notes

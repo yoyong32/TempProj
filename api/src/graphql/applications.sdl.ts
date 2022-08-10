@@ -1,6 +1,7 @@
 export const schema = gql`
   type Application {
     id: Int!
+    company: String!
     position: String!
     stage: String!
     notes: String!
@@ -14,6 +15,7 @@ export const schema = gql`
   }
 
   input CreateApplicationInput {
+    company: String!
     position: String!
     stage: String!
     notes: String!
@@ -22,6 +24,7 @@ export const schema = gql`
   }
 
   input UpdateApplicationInput {
+    company: String
     position: String
     stage: String
     notes: String

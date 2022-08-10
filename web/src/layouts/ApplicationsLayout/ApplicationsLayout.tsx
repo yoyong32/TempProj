@@ -11,7 +11,7 @@ const ApplicationsLayout = ({ children }: ApplicationLayoutProps) => {
       <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
       <header className="rw-header">
         <h1>
-          <Link to={routes.home()}>myApplications</Link>
+          myApplications
         </h1>
         <nav>
           <ul>
