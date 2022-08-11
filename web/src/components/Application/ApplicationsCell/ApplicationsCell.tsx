@@ -9,6 +9,7 @@ export const QUERY = gql`
   query FindApplications {
     applications {
       id
+      company
       position
       stage
       notes

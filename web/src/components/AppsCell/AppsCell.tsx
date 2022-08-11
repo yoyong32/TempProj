@@ -51,7 +51,7 @@ export const Success = ({ apps }: CellSuccessProps<AppsQuery>) => {
             <option>Final Round</option>
           </SelectField>
 
-          <ButtonField name='reset' onClick={() => setFilteredApps(apps)} />
+          <Submit onClick={() => setFilteredApps(apps)} className="button">Apply</Submit>
         </Form>
       </>
       {filteredApps.map((application) => (

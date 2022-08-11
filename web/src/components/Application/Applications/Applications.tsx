@@ -74,12 +74,14 @@ const ApplicationsList = ({ applications }) => {
     }
   }
 
+  console.log(applications)
+
   return (
     <div className="rw-segment rw-table-wrapper-responsive">
       <table className="rw-table">
         <thead>
           <tr>
-            <th>Id</th>
+            <th>Index</th>
             <th>Company</th>
             <th>Position</th>
             <th>Stage</th>
@@ -90,9 +92,9 @@ const ApplicationsList = ({ applications }) => {
           </tr>
         </thead>
         <tbody>
-          {applications.map((application) => (
+          {applications.map((application, i) => (
             <tr key={application.id}>
-              <td>{truncate(application.id)}</td>
+              <td>{truncate(i + 1)}</td>
               <td>{truncate(application.company)}</td>
               <td>{truncate(application.position)}</td>
               <td>{truncate(application.stage)}</td>
