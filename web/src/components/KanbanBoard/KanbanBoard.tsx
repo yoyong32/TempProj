@@ -6,8 +6,40 @@ import Column from '../Columns/Column';
 
 class KanbanBoard extends React.Component{
   state = applicationData;
+
   onDragEnd = result => {
-    //TODO reorder our column
+    const { destination, source, draggableId } = result;
+
+    if (!destination){
+      return;
+    }
+
+    if (
+      (destination.droppableId === source.droppableId) &&
+      (destination.index === source.index))
+      {
+        return;
+    }
+
+    const column = this.state.columns[source.droppableId];
+    const newCardIds = Array.from(column.cardIDs);
+    newCardIds.splice(source.index, 1);
+    newCardIds.splice(destination.index, 0, draggableId);
+
+    const newColumn = {
+      ...column,
+      cardIDs: newCardIds,
+    };
+
+    const newState = {
+      ...this.state,
+      columns: {
+        ...this.state.columns,
+        [newColumn.id]: newColumn,
+      },
+    };
+
+    this.setState(newState);
   }
 
   render() {
