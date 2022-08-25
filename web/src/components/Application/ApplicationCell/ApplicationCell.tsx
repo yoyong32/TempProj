@@ -8,6 +8,7 @@ export const QUERY = gql`
   query FindApplicationById($id: Int!) {
     application: application(id: $id) {
       id
+      company
       position
       stage
       notes
